@@ -29,19 +29,25 @@ def make_chains(file_object):
  
 def make_text(chains):
     """Takes dictionary of markov chains; returns random text."""
-    random_key = random.choice(chains.keys())
 
-
-    text_string = random_key[0] + " " + random_key[1]
-    print text_string
+    #print text_string
     # make first key
     # add to string
+    random_key = random.choice(chains.keys())
+    text_string = random_key[0] + " " + random_key[1]
 
     while random_key in chains: #setting end of loop
-    #    list_of_values = markov_dictionary[key] #points to list of values for that key
-    #     random_value = random.choice(list_of_values) # choose random value from list of values for that key
-    #     text_string = text_string + str(key[0]) + " " + str(key[1]) + " " + random_value + " " # add to string
-    #     key = (key[1], random_value)
+        list_of_values = chains[random_key] #points to list of values for that key
+        random_value = random.choice(list_of_values) # choose random value from list of values for that key
+        text_string += " " + random_value + " " # add to string
+        random_key = (random_key[1], random_value)
+        
+            
+
+            #if new_key in chains:
+                #return
+    print text_string
+
     #     print text_string
         # else:
         #     return
