@@ -22,67 +22,22 @@ def make_chains(file_object):
         else: 
             markov_dictionary[(key1, key2)] = [word_list[start_index+2]]
         # dictionary = [adding key_item1, key_item2] = adding value
-        # if key1 in markov_dictionary:
-        # else:
-        #     print "try again!"
     return markov_dictionary
  
 def make_text(chains):
     """Takes dictionary of markov chains; returns random text."""
 
-    #print text_string
-    # make first key
-    # add to string
     random_key = random.choice(chains.keys())
     text_string = random_key[0] + " " + random_key[1]
 
-    while random_key in chains: #setting end of loop
-        list_of_values = chains[random_key] #points to list of values for that key
-        random_value = random.choice(list_of_values) # choose random value from list of values for that key
-        text_string += " " + random_value + " " # add to string
+    while random_key in chains: 
+        list_of_values = chains[random_key] 
+        random_value = random.choice(list_of_values) 
+        text_string += " " + random_value + " " 
         random_key = (random_key[1], random_value)
         
-            
-
-            #if new_key in chains:
-                #return
     print text_string
 
-    #     print text_string
-        # else:
-        #     return
-    #print text_string
-            
-
-            # make new key (key2, value) = new_random_value
-
-            #(key1, key2) : [1, 2, 3]
-            #add key1, key2, random_value to string
-            #then make a new key from (key2, random_value) : new_random_value
-
-
-        
-        
-        
-    
-    #print text_string
-
-    #return "Here's some random text."
-
-
-# Change this to read input_text from a file, deciding which file should
-# be used by examining the `sys.argv` arguments (if neccessary, see the
-# Python docs for sys.argv)
-
-#input_text = "Some text"
-
-# Get a Markov chain
-# chain_dict = make_chains(input_text)
-
-# # Produce random text
-# random_text = make_text(chain_dict)
-
-# print random_text
 
 markov_dictionary = make_chains(file_object)
 #print markov_dictionary
